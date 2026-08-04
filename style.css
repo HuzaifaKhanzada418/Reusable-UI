@@ -1,0 +1,424 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #ffffff, #000000);
+    color: rgb(0, 0, 0);
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+/* Container */
+
+.container {
+    width: min(1200px, 95%);
+    margin: auto;
+}
+
+/* Header */
+
+.header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.header h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.header p {
+    color: #1c1d20;
+    max-width: 750px;
+    margin: auto;
+    line-height: 1.7;
+}
+
+/* Sections */
+
+.section {
+    margin-top: 55px;
+}
+
+.section h2 {
+    margin-bottom: 20px;
+    color: #0c0c0c;
+    font-size: 28px;
+}
+
+/* Button Area */
+
+.button-demo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* 
+   Reusable Button
+ */
+
+.btn {
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 13px 24px;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    transition: .3s;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+}
+
+/* Variants */
+
+.primary {
+    background: #2b6af1;
+}
+
+.primary:hover {
+    background: #0947f4;
+}
+
+.success {
+    background: #1dd460;
+}
+
+.success:hover {
+    background: #15803d;
+}
+
+.danger {
+    background: #dc2626;
+}
+
+.danger:hover {
+    background: #b91c1c;
+} 
+
+.secondary {
+    background: #64748b;
+}
+
+.secondary:hover {
+    background: #475569;
+}
+
+/* Card Layout */
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+  
+/* Card */
+
+.card {
+    background: rgba(255, 255, 255, .08);
+
+    backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, .12);
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    transition: .35s;
+}
+
+.card:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow: 0 20px 45px rgb(174, 171, 171);
+
+}
+
+.card img {
+
+    width: 100%;
+
+    height: 200px;
+
+    object-fit: cover;
+
+}
+
+.card-content {
+
+    padding: 20px;
+
+}
+
+.card h3 {
+
+    margin-bottom: 10px;
+
+}
+
+.card p {
+
+    color: #000000;
+
+    line-height: 1.6;
+
+    margin-bottom: 18px;
+
+}
+
+.card button {
+
+    width: 100%;
+
+}
+
+/* Modal */
+
+.modal-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, .7);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: .3s;
+
+    padding: 20px;
+
+    z-index: 999;
+
+}
+
+.modal-overlay.active {
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+.modal {
+
+    background: #1e293b;
+
+    width: 450px;
+
+    max-width: 100%;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    animation: popup .3s ease;
+
+}
+
+.modal-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 18px 22px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+
+}
+
+.modal-header h3 {
+
+    font-size: 22px;
+
+}
+
+.close-btn {
+
+    background: none;
+
+    border: none;
+
+    color: white;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+}
+
+.modal-body {
+
+    padding: 22px;
+
+    color: #cbd5e1;
+
+    line-height: 1.7;
+
+}
+
+/* Toast */
+
+#toast-container {
+
+    position: fixed;
+
+    top: 20px;
+
+    right: 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    z-index: 1000;
+
+}
+
+.toast {
+
+    min-width: 300px;
+
+    padding: 15px 20px;
+
+    border-radius: 10px;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    animation: slide .35s ease;
+
+    box-shadow: 0 15px 30px rgba(0, 0, 0, .25);
+
+}
+
+.toast.success {
+
+    background: #16a34a;
+
+}
+
+.toast.error {
+
+    background: #dc2626;
+
+}
+
+.toast.warning {
+
+    background: #d97706;
+
+}
+
+.toast.info {
+
+    background: #2563eb;
+
+}
+
+
+/* Animations */
+
+@keyframes popup {
+
+    from {
+
+        transform: scale(.8);
+
+        opacity: 0;
+
+    }
+
+    to {
+
+        transform: scale(1);
+
+        opacity: 1;
+
+    }
+
+}
+
+@keyframes slide {
+
+    from {
+
+        transform: translateX(100px);
+
+        opacity: 0;
+
+    }
+
+    to {
+
+        transform: translateX(0);
+
+        opacity: 1;
+
+    }
+}
+
+/* Responsive */
+
+@media(max-width:768px) {
+
+    .header h1 {
+
+        font-size: 32px;
+
+    }
+
+    .section h2 {
+
+        font-size: 24px;
+
+    }
+
+    .toast {
+
+        min-width: 240px;
+
+    }
+}
+
+@media(max-width:500px) {
+
+    .button-demo {
+
+        flex-direction: column;
+
+    }
+
+    .btn {
+
+        width: 100%;
+
+    }
+}
